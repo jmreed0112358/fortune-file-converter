@@ -64,6 +64,21 @@ FortuneConverter.prototype.loadFile = function (fileName) {
   }
 };
 
+FortuneConverter.prototype.writeOutput = function (jsonString) {
+  var fd,
+    outputFileName = '';
+
+  try {
+    outputFileName = readline.question('Where should our data be written? ');
+
+    fd = fs.openSync(outputFileName, 'w');
+
+    fs.writeFileSync(fd, jsonString, { encoding: 'utf8', mode: 0x600 });
+  } catch (error) {
+    console.log('Caught error: ', error);
+  }
+}
+
 FortuneConverter.prototype.selectQuotes = function (quoteArray) {
   var line = '',
     result = [],

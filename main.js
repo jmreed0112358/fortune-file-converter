@@ -24,4 +24,6 @@ finalArray = processor.selectQuotes(dataArray);
 console.log('Array.isArray(finalArray): ', Array.isArray(finalArray));
 console.log('finalArray: ', finalArray);
 console.log('JSON.stringify(finalArray): ', JSON.stringify(finalArray));
+
+processor.writeOutput(JSON.stringify(finalArray));
 console.log('Done processing!');
