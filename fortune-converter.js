@@ -57,27 +57,37 @@ FortuneConverter.prototype.loadFile = function (fileName) {
 
     console.log('data: ', data);
 
-    return this.parseData(data);
+    return data;
   } catch (error) {
     console.log('Caught error: ', error);
-    return [];
+    return '';
   }
 };
 
-FortuneConverter.prototype.writeOutput = function (jsonString) {
-  var fd,
-    outputFileName = '';
+FortuneConverter.prototype.writeOutput = function (outputFileName, jsonString) {
+  var fd;
 
   try {
-    outputFileName = readline.question('Where should our data be written? ');
-
     fd = fs.openSync(outputFileName, 'w');
 
     fs.writeFileSync(fd, jsonString, { encoding: 'utf8', mode: 0x600 });
   } catch (error) {
     console.log('Caught error: ', error);
   }
-}
+};
+
+FortuneConverter.prototype.readOutputFile = function(outputFileName) {
+  var data = '';
+
+  try {
+    data = this.loadFile(outputFileName);
+
+    console.log('Array.isArray(JSON.parse(data): ', Array.isArray(JSON.parse(data)));
+    console.log('Output data: ', JSON.parse(data));
+  } catch (error ) {
+    console.log('Caught error: ', error);
+  }
+};
 
 FortuneConverter.prototype.selectQuotes = function (quoteArray) {
   var line = '',
