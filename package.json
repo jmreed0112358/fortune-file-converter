@@ -1,0 +1,23 @@
+{
+  "name": "fortune-file-converter",
+  "version": "0.0.1",
+  "description": "Converts quote files to JSON format.",
+  "main": "main.js",
+  "dependencies": {
+    "readline-sync": "^1.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jasmine-node fortune-converter.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmreed0112358/fortune-file-converter.git"
+  },
+  "author": "Jeremy M. Reed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmreed0112358/fortune-file-converter/issues"
+  },
+  "homepage": "https://github.com/jmreed0112358/fortune-file-converter#readme"
+}
