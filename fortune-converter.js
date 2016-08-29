@@ -114,8 +114,7 @@ FortuneConverter.prototype.selectQuotes = function (quoteArray) {
 
     if (readline.keyInYN('Should this quote be included in the final output? (Y/N)')) {
       // 'Y'
-      nameString = readline.question('Give this quote a name: ');
-      result.push({ name: nameString, text: quoteArray[i] });
+      result.push({ text: quoteArray[i] });
     } else {
       // Either 'N' or some other key.  Take same action in either case.
       console.log('Skipping this quote');
