@@ -5,6 +5,7 @@ var FortuneProcessor = require('./fortune-converter'),
   processor,
   data = '',
   dataArray = [],
+  finalArray = [],
   i = 0;
 
 console.log('process.argv.length: ', process.argv.length);
@@ -18,6 +19,9 @@ processor = new FortuneProcessor();
 
 dataArray = processor.loadFile(process.argv[2]);
 
+finalArray = processor.selectQuotes(dataArray);
 
-
+console.log('Array.isArray(finalArray): ', Array.isArray(finalArray));
+console.log('finalArray: ', finalArray);
+console.log('JSON.stringify(finalArray): ', JSON.stringify(finalArray));
 console.log('Done processing!');

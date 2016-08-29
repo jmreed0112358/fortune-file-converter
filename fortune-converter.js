@@ -1,6 +1,7 @@
 'use strict';
 
-var fs = require('fs');
+var fs = require('fs'),
+  readline = require('readline-sync')
 
 var FortuneConverter = function () {};
 
@@ -62,5 +63,41 @@ FortuneConverter.prototype.loadFile = function (fileName) {
     return [];
   }
 };
+
+FortuneConverter.prototype.selectQuotes = function (quoteArray) {
+  var line = '',
+    result = [],
+    i = 0;
+  /*
+   * For each quote in the array:
+   * Ask the user if the quote should be included in the final output.
+   */
+   if (quoteArray.length === 0) {
+    console.log('There are no quotes to process!');
+    return [];
+   }
+
+   console.log('I read in ' + quoteArray.length + ' quotes.');
+   console.log('Tell me which ones should be included in the final output');
+
+   for (i = 0 ; i < quoteArray.length ; i++) {
+    var quote = {},
+      nameString = '';
+
+    console.log('\nQuote # ' + i + ':');
+    console.log(quoteArray[i]);
+
+    if (readline.keyInYN('Should this quote be included in the final output? (Y/N)')) {
+      // 'Y'
+      nameString = readline.question('Give this quote a name: ');
+      result.push({ name: nameString, text: quoteArray[i] });
+    } else {
+      // Either 'N' or some other key.  Take same action in either case.
+      console.log('Skipping this quote');
+    }
+   }
+
+   return result;
+}
 
 module.exports = FortuneConverter;
