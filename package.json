@@ -1,8 +1,12 @@
 {
   "name": "fortune-file-converter",
   "version": "0.0.1",
-  "description": "Convert quote files to JSON format.",
+  "description": "Converts quote files to JSON format.",
   "main": "main.js",
+  "dependencies": {
+    "readline-sync": "^1.4.4"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "jasmine-node fortune-converter.spec.js"
   },
